@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="snippet_menu_root" name="Snippets" web_icon="odoo_snippets_demo,static/description/icon.png"/>
+    <menuitem id="snippet_book_menu" name="Books" parent="snippet_menu_root" action="snippet_book_action"/>
+</odoo>
