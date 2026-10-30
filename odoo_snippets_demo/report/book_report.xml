@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Action de rapport : ajoute « Imprimer > Stock Report » sur les livres -->
+    <record id="snippet_book_report_action" model="ir.actions.report">
+        <field name="name">Stock Report</field>
+        <field name="model">snippet.book</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">odoo_snippets_demo.report_book_stock</field>
+        <field name="report_file">odoo_snippets_demo.report_book_stock</field>
+        <field name="binding_model_id" ref="model_snippet_book"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <!-- Gabarit QWeb : `docs` contient les enregistrements sélectionnés -->
+    <template id="report_book_stock">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <h2>Book Stock</h2>
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th class="text-end">Quantity</th>
+                                <th class="text-end">Value</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="docs" t-as="book">
+                                <td><span t-field="book.name"/></td>
+                                <td class="text-end"><span t-field="book.quantity"/></td>
+                                <td class="text-end"><span t-field="book.total_value"/></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p>Total value: <strong t-out="sum(docs.mapped('total_value'))"/></p>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>
