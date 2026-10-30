@@ -1,0 +1,238 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* odoo_snippets_demo
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-30 15:26+0000\n"
+"PO-Revision-Date: 2026-10-30 15:26+0000\n"
+"Last-Translator: Koffi Modeste Junior\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: odoo_snippets_demo
+#. odoo-python
+#: code:addons/odoo_snippets_demo/models/book.py:0
+msgid "An ISBN has 10 or 13 characters."
+msgstr "Un ISBN comporte 10 ou 13 caractères."
+
+#. module: odoo_snippets_demo
+#: model:ir.model.fields,field_description:odoo_snippets_demo.field_snippet_book__author_id
+#: model_terms:ir.ui.view,arch_db:odoo_snippets_demo.snippet_book_view_search
+msgid "Author"
+msgstr "Auteur"
+
+#. module: odoo_snippets_demo
+#: model:ir.model,name:odoo_snippets_demo.model_snippet_book
+msgid "Book (snippet demo)"
+msgstr "Livre (démo snippets)"
+
+#. module: odoo_snippets_demo
+#: model_terms:ir.ui.view,arch_db:odoo_snippets_demo.report_book_stock
+msgid "Book Stock"
+msgstr "Stock de livres"
+
+#. module: odoo_snippets_demo
+#: model:ir.actions.act_window,name:odoo_snippets_demo.snippet_book_action
+#: model:ir.model.fields,field_description:odoo_snippets_demo.field_snippet_book_restock_wizard__book_ids
+#: model:ir.ui.menu,name:odoo_snippets_demo.snippet_book_menu
+msgid "Books"
+msgstr "Livres"
+
+#. module: odoo_snippets_demo
+#: model_terms:ir.ui.view,arch_db:odoo_snippets_demo.snippet_book_restock_wizard_view_form
+msgid "Cancel"
+msgstr "Annuler"
+
+#. module: odoo_snippets_demo
+#. odoo-python
+#: code:addons/odoo_snippets_demo/models/book.py:0
+msgid "Check the ISBN"
+msgstr "Vérifiez l'ISBN"
+
+#. module: odoo_snippets_demo
+#: model:ir.model,name:odoo_snippets_demo.model_res_partner
+msgid "Contact"
+msgstr "Contact"
+
+#. module: odoo_snippets_demo
+#: model:ir.model.fields,field_description:odoo_snippets_demo.field_snippet_book__create_uid
+#: model:ir.model.fields,field_description:odoo_snippets_demo.field_snippet_book_restock_wizard__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: odoo_snippets_demo
+#: model:ir.model.fields,field_description:odoo_snippets_demo.field_snippet_book__create_date
+#: model:ir.model.fields,field_description:odoo_snippets_demo.field_snippet_book_restock_wizard__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: odoo_snippets_demo
+#: model:ir.model.fields,field_description:odoo_snippets_demo.field_res_partner__display_name
+#: model:ir.model.fields,field_description:odoo_snippets_demo.field_snippet_book__display_name
+#: model:ir.model.fields,field_description:odoo_snippets_demo.field_snippet_book_restock_wizard__display_name
+msgid "Display Name"
+msgstr "Nom d'affichage"
+
+#. module: odoo_snippets_demo
+#: model:ir.model.fields,field_description:odoo_snippets_demo.field_res_partner__favorite_book_id
+#: model:ir.model.fields,field_description:odoo_snippets_demo.field_res_users__favorite_book_id
+msgid "Favorite Book"
+msgstr "Livre préféré"
+
+#. module: odoo_snippets_demo
+#: model:ir.model.fields,field_description:odoo_snippets_demo.field_res_partner__id
+#: model:ir.model.fields,field_description:odoo_snippets_demo.field_snippet_book__id
+#: model:ir.model.fields,field_description:odoo_snippets_demo.field_snippet_book_restock_wizard__id
+msgid "ID"
+msgstr "ID"
+
+#. module: odoo_snippets_demo
+#: model:ir.model.fields,field_description:odoo_snippets_demo.field_snippet_book__isbn
+msgid "ISBN"
+msgstr "ISBN"
+
+#. module: odoo_snippets_demo
+#: model:ir.model.fields.selection,name:odoo_snippets_demo.selection__snippet_book__stock_status__ok
+msgid "In stock"
+msgstr "En stock"
+
+#. module: odoo_snippets_demo
+#: model:ir.model.fields,field_description:odoo_snippets_demo.field_snippet_book__write_uid
+#: model:ir.model.fields,field_description:odoo_snippets_demo.field_snippet_book_restock_wizard__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: odoo_snippets_demo
+#: model:ir.model.fields,field_description:odoo_snippets_demo.field_snippet_book__write_date
+#: model:ir.model.fields,field_description:odoo_snippets_demo.field_snippet_book_restock_wizard__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: odoo_snippets_demo
+#: model:ir.model.fields.selection,name:odoo_snippets_demo.selection__snippet_book__stock_status__low
+msgid "Low stock"
+msgstr "Stock faible"
+
+#. module: odoo_snippets_demo
+#: model:ir.model.fields,field_description:odoo_snippets_demo.field_snippet_book__name
+msgid "Name"
+msgstr "Nom"
+
+#. module: odoo_snippets_demo
+#: model:ir.model.fields,field_description:odoo_snippets_demo.field_snippet_book__needs_restock
+msgid "Needs Restock"
+msgstr "À réapprovisionner"
+
+#. module: odoo_snippets_demo
+#: model:ir.model.fields.selection,name:odoo_snippets_demo.selection__snippet_book__stock_status__out
+msgid "Out of stock"
+msgstr "En rupture"
+
+#. module: odoo_snippets_demo
+#: model:ir.model.fields,field_description:odoo_snippets_demo.field_snippet_book__price
+msgid "Price"
+msgstr "Prix"
+
+#. module: odoo_snippets_demo
+#: model:ir.model.fields,field_description:odoo_snippets_demo.field_snippet_book_restock_wizard__quantity
+#: model_terms:ir.ui.view,arch_db:odoo_snippets_demo.report_book_stock
+msgid "Quantity"
+msgstr "Quantité"
+
+#. module: odoo_snippets_demo
+#: model:ir.model.constraint,message:odoo_snippets_demo.constraint_snippet_book_quantity_positive
+msgid "Quantity cannot be negative."
+msgstr "La quantité ne peut pas être négative."
+
+#. module: odoo_snippets_demo
+#: model:ir.model.fields,field_description:odoo_snippets_demo.field_snippet_book__quantity
+msgid "Quantity in Stock"
+msgstr "Quantité en stock"
+
+#. module: odoo_snippets_demo
+#: model:ir.actions.act_window,name:odoo_snippets_demo.snippet_book_restock_wizard_action
+#: model_terms:ir.ui.view,arch_db:odoo_snippets_demo.snippet_book_restock_wizard_view_form
+msgid "Restock"
+msgstr "Réapprovisionner"
+
+#. module: odoo_snippets_demo
+#: model:ir.model,name:odoo_snippets_demo.model_snippet_book_restock_wizard
+msgid "Restock books (snippet demo)"
+msgstr "Réapprovisionner des livres (démo snippets)"
+
+#. module: odoo_snippets_demo
+#: model:ir.model.fields,help:odoo_snippets_demo.field_snippet_book__needs_restock
+msgid "Set by the scheduled action."
+msgstr "Renseigné par l'action planifiée."
+
+#. module: odoo_snippets_demo
+#: model:ir.ui.menu,name:odoo_snippets_demo.snippet_menu_root
+msgid "Snippets"
+msgstr "Snippets"
+
+#. module: odoo_snippets_demo
+#: model:ir.actions.server,name:odoo_snippets_demo.snippet_book_cron_low_stock_ir_actions_server
+msgid "Snippets: flag books to restock"
+msgstr "Snippets : signaler les livres à réapprovisionner"
+
+#. module: odoo_snippets_demo
+#: model:ir.actions.report,name:odoo_snippets_demo.snippet_book_report_action
+msgid "Stock Report"
+msgstr "Rapport de stock"
+
+#. module: odoo_snippets_demo
+#: model:ir.model.fields,field_description:odoo_snippets_demo.field_snippet_book__stock_status
+msgid "Stock Status"
+msgstr "État du stock"
+
+#. module: odoo_snippets_demo
+#. odoo-python
+#: code:addons/odoo_snippets_demo/models/book.py:0
+msgid "The price of “%s” cannot be negative."
+msgstr "Le prix de « %s » ne peut pas être négatif."
+
+#. module: odoo_snippets_demo
+#: model:ir.model.constraint,message:odoo_snippets_demo.constraint_snippet_book_isbn_unique
+msgid "This ISBN already exists."
+msgstr "Cet ISBN existe déjà."
+
+#. module: odoo_snippets_demo
+#: model_terms:ir.ui.view,arch_db:odoo_snippets_demo.snippet_book_view_form
+msgid "This book needs to be restocked."
+msgstr "Ce livre doit être réapprovisionné."
+
+#. module: odoo_snippets_demo
+#: model_terms:ir.ui.view,arch_db:odoo_snippets_demo.report_book_stock
+msgid "Title"
+msgstr "Titre"
+
+#. module: odoo_snippets_demo
+#: model_terms:ir.ui.view,arch_db:odoo_snippets_demo.snippet_book_view_search
+msgid "To Restock"
+msgstr "À réapprovisionner"
+
+#. module: odoo_snippets_demo
+#: model_terms:ir.ui.view,arch_db:odoo_snippets_demo.snippet_book_view_list
+msgid "Total"
+msgstr "Total"
+
+#. module: odoo_snippets_demo
+#: model:ir.model.fields,field_description:odoo_snippets_demo.field_snippet_book__total_value
+msgid "Total Value"
+msgstr "Valeur totale"
+
+#. module: odoo_snippets_demo
+#: model_terms:ir.ui.view,arch_db:odoo_snippets_demo.report_book_stock
+msgid "Total value:"
+msgstr "Valeur totale :"
+
+#. module: odoo_snippets_demo
+#: model_terms:ir.ui.view,arch_db:odoo_snippets_demo.report_book_stock
+msgid "Value"
+msgstr "Valeur"
