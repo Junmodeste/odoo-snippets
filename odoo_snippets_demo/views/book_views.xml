@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!-- Odoo 19 : <list> remplace <tree> -->
+    <!-- Odoo 18+ : <list> remplace <tree> -->
     <record id="snippet_book_view_list" model="ir.ui.view">
         <field name="name">snippet.book.list</field>
         <field name="model">snippet.book</field>

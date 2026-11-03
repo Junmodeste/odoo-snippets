@@ -1,7 +1,7 @@
 {
     "name": "Odoo Snippets Demo",
-    "summary": "Commented Odoo 19 cheat sheet as an installable module",
-    "version": "19.0.1.0.0",
+    "summary": "Commented Odoo 18 cheat sheet as an installable module",
+    "version": "18.0.1.0.0",
     "category": "Hidden/Tools",
     "license": "LGPL-3",
     "author": "Koffi Modeste Junior",

@@ -1,14 +1,14 @@
-# Odoo 19 Snippets
+# Odoo 18 Snippets
 
-[![Odoo 19](https://img.shields.io/badge/Odoo-19.0-714B67)](https://www.odoo.com)
-[![tests](https://github.com/Junmodeste/odoo-snippets/actions/workflows/tests.yml/badge.svg?branch=19.0)](https://github.com/Junmodeste/odoo-snippets/actions/workflows/tests.yml)
+[![Odoo 18](https://img.shields.io/badge/Odoo-18.0-714B67)](https://www.odoo.com)
+[![tests](https://github.com/Junmodeste/odoo-snippets/actions/workflows/tests.yml/badge.svg?branch=18.0)](https://github.com/Junmodeste/odoo-snippets/actions/workflows/tests.yml)
 [![License: LGPL-3](https://img.shields.io/badge/License-LGPL--3-blue.svg)](LICENSE)
 
 🇫🇷 [Français](#français) · 🇬🇧 [English](#english)
 
 ## Français
 
-Une antisèche commentée en français des briques de code Odoo 19 les plus utilisées.
+Une antisèche commentée en français des briques de code Odoo 18 les plus utilisées.
 Tous les exemples vivent dans le module installable `odoo_snippets_demo` (un petit catalogue de livres), couvert par des tests qui prouvent qu'ils fonctionnent.
 
 ### Sommaire
@@ -17,11 +17,11 @@ Tous les exemples vivent dans le module installable `odoo_snippets_demo` (un pet
 |---|---|---|
 | 1 | Champ calculé **stocké** (`store=True`) | [models/book.py#L23](odoo_snippets_demo/models/book.py#L23) |
 | 2 | Champ calculé **non stocké** | [models/book.py#L28](odoo_snippets_demo/models/book.py#L28) |
-| 3 | Onchange avec avertissement | [models/book.py#L56](odoo_snippets_demo/models/book.py#L56) |
-| 4 | Contrainte **Python** (`@api.constrains`) | [models/book.py#L73](odoo_snippets_demo/models/book.py#L73) |
-| 5 | Contraintes **SQL** (`models.Constraint`, nouveauté 19) | [models/book.py#L36](odoo_snippets_demo/models/book.py#L36) |
+| 3 | Onchange avec avertissement | [models/book.py#L58](odoo_snippets_demo/models/book.py#L58) |
+| 4 | Contrainte **Python** (`@api.constrains`) | [models/book.py#L75](odoo_snippets_demo/models/book.py#L75) |
+| 5 | Contraintes **SQL** (`_sql_constraints` ; `models.Constraint` en 19) | [models/book.py#L36](odoo_snippets_demo/models/book.py#L36) |
 | 6 | Assistant (`TransientModel`) + action liée | [wizards/book_restock_wizard.py](odoo_snippets_demo/wizards/book_restock_wizard.py), [vue](odoo_snippets_demo/wizards/book_restock_wizard_views.xml) |
-| 7 | Action planifiée (`ir.cron`) | [data/ir_cron.xml](odoo_snippets_demo/data/ir_cron.xml), [méthode](odoo_snippets_demo/models/book.py#L84) |
+| 7 | Action planifiée (`ir.cron`) | [data/ir_cron.xml](odoo_snippets_demo/data/ir_cron.xml), [méthode](odoo_snippets_demo/models/book.py#L86) |
 | 8 | Rapport QWeb PDF | [report/book_report.xml](odoo_snippets_demo/report/book_report.xml) |
 | 9 | Héritage de vue (`inherit_id` + `xpath`) | [views/res_partner_views.xml](odoo_snippets_demo/views/res_partner_views.xml), [modèle](odoo_snippets_demo/models/res_partner.py) |
 | 10 | Vues `<list>`, formulaire, recherche (`invisible` direct) | [views/book_views.xml](odoo_snippets_demo/views/book_views.xml) |
@@ -32,7 +32,7 @@ Tous les exemples vivent dans le module installable `odoo_snippets_demo` (un pet
 
 ### Prérequis
 
-- Odoo 19 (Community ou Enterprise) ; seuls `base` et `web` sont requis
+- Odoo 18 (Community ou Enterprise) ; seuls `base` et `web` sont requis
 - Python 3 pour le script XML-RPC (bibliothèque standard uniquement)
 
 ### Installation
@@ -43,9 +43,9 @@ Tous les exemples vivent dans le module installable `odoo_snippets_demo` (un pet
 
 Lancer les tests : `odoo -d test -i odoo_snippets_demo --test-enable --stop-after-init`
 
-### Version supportée
+### Versions supportées
 
-Odoo **19.0** uniquement. Tests automatisés exécutés en CI sur Odoo 19 Community (image `odoo:19`, 19.0-20261015 en local) + `postgres:16`.
+Cette branche : Odoo **18.0**. Autres branches : [`19.0`](https://github.com/Junmodeste/odoo-snippets/tree/19.0). Tests automatisés exécutés en CI sur Odoo 18 Community (image `odoo:18`, 18.0-20261102 en local) + `postgres:16`.
 
 ### Licence
 
@@ -57,7 +57,7 @@ Koffi Modeste Junior — [@Junmodeste](https://github.com/Junmodeste)
 
 ## English
 
-A commented cheat sheet (in French) of the most used Odoo 19 code patterns.
+A commented cheat sheet (in French) of the most used Odoo 18 code patterns.
 Every example lives in the installable `odoo_snippets_demo` module (a small book catalog), with tests proving they work.
 
 ### Contents
@@ -66,9 +66,9 @@ Every example lives in the installable `odoo_snippets_demo` module (a small book
 |---|---|---|
 | 1 | **Stored** computed field | [models/book.py#L23](odoo_snippets_demo/models/book.py#L23) |
 | 2 | **Non-stored** computed field | [models/book.py#L28](odoo_snippets_demo/models/book.py#L28) |
-| 3 | Onchange with warning | [models/book.py#L56](odoo_snippets_demo/models/book.py#L56) |
-| 4 | **Python** constraint | [models/book.py#L73](odoo_snippets_demo/models/book.py#L73) |
-| 5 | **SQL** constraints (`models.Constraint`, new in 19) | [models/book.py#L36](odoo_snippets_demo/models/book.py#L36) |
+| 3 | Onchange with warning | [models/book.py#L58](odoo_snippets_demo/models/book.py#L58) |
+| 4 | **Python** constraint | [models/book.py#L75](odoo_snippets_demo/models/book.py#L75) |
+| 5 | **SQL** constraints (`_sql_constraints`; `models.Constraint` in 19) | [models/book.py#L36](odoo_snippets_demo/models/book.py#L36) |
 | 6 | Wizard (`TransientModel`) + bound action | [wizards/book_restock_wizard.py](odoo_snippets_demo/wizards/book_restock_wizard.py) |
 | 7 | Scheduled action (`ir.cron`) | [data/ir_cron.xml](odoo_snippets_demo/data/ir_cron.xml) |
 | 8 | QWeb PDF report | [report/book_report.xml](odoo_snippets_demo/report/book_report.xml) |
@@ -79,7 +79,7 @@ Every example lives in the installable `odoo_snippets_demo` module (a small book
 
 ### Requirements
 
-- Odoo 19 (Community or Enterprise); only `base` and `web` are required
+- Odoo 18 (Community or Enterprise); only `base` and `web` are required
 - Python 3 for the XML-RPC script (standard library only)
 
 ### Installation
@@ -88,9 +88,9 @@ Every example lives in the installable `odoo_snippets_demo` module (a small book
 2. Update the apps list and install **Odoo Snippets Demo** (*Snippets* menu).
 3. Optional: `ODOO_URL=http://localhost:8069 ODOO_DB=my_db ODOO_USER=admin ODOO_PASSWORD=*** python scripts/xmlrpc_client.py`
 
-### Supported version
+### Supported versions
 
-Odoo **19.0** only. Automated tests run in CI on Odoo 19 Community (`odoo:19` image, 19.0-20261015 locally) + `postgres:16`.
+This branch: Odoo **18.0**. Other branches: [`19.0`](https://github.com/Junmodeste/odoo-snippets/tree/19.0). Automated tests run in CI on Odoo 18 Community (`odoo:18` image, 18.0-20261102 locally) + `postgres:16`.
 
 ### License
 

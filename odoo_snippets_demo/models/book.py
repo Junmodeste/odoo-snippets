@@ -33,10 +33,12 @@ class SnippetBook(models.Model):
         compute="_compute_stock_status",
     )
 
-    # --- Contraintes SQL (Odoo 19 : models.Constraint) -----------------------
-    # Vérifiées par PostgreSQL ; remplacent l'ancien `_sql_constraints`.
-    _isbn_unique = models.Constraint("UNIQUE(isbn)", "This ISBN already exists.")
-    _quantity_positive = models.Constraint("CHECK(quantity >= 0)", "Quantity cannot be negative.")
+    # --- Contraintes SQL (Odoo 18 : _sql_constraints) ------------------------
+    # Vérifiées par PostgreSQL ; en Odoo 19, remplacées par `models.Constraint`.
+    _sql_constraints = [
+        ("isbn_unique", "UNIQUE(isbn)", "This ISBN already exists."),
+        ("quantity_positive", "CHECK(quantity >= 0)", "Quantity cannot be negative."),
+    ]
 
     @api.depends("price", "quantity")
     def _compute_total_value(self):
