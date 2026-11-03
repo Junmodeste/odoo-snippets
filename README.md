@@ -43,9 +43,9 @@ Tous les exemples vivent dans le module installable `odoo_snippets_demo` (un pet
 
 Lancer les tests : `odoo -d test -i odoo_snippets_demo --test-enable --stop-after-init`
 
-### Version supportée
+### Versions supportées
 
-Odoo **19.0** uniquement. Tests automatisés exécutés en CI sur Odoo 19 Community (image `odoo:19`, 19.0-20261015 en local) + `postgres:16`.
+Une branche par version d'Odoo : [`19.0`](https://github.com/Junmodeste/odoo-snippets/tree/19.0) (cette branche), [`18.0`](https://github.com/Junmodeste/odoo-snippets/tree/18.0). Tests automatisés exécutés en CI sur Odoo 19 Community (image `odoo:19`, 19.0-20261015 en local) + `postgres:16`.
 
 ### Licence
 
@@ -88,9 +88,9 @@ Every example lives in the installable `odoo_snippets_demo` module (a small book
 2. Update the apps list and install **Odoo Snippets Demo** (*Snippets* menu).
 3. Optional: `ODOO_URL=http://localhost:8069 ODOO_DB=my_db ODOO_USER=admin ODOO_PASSWORD=*** python scripts/xmlrpc_client.py`
 
-### Supported version
+### Supported versions
 
-Odoo **19.0** only. Automated tests run in CI on Odoo 19 Community (`odoo:19` image, 19.0-20261015 locally) + `postgres:16`.
+One branch per Odoo version: [`19.0`](https://github.com/Junmodeste/odoo-snippets/tree/19.0) (this branch), [`18.0`](https://github.com/Junmodeste/odoo-snippets/tree/18.0). Automated tests run in CI on Odoo 19 Community (`odoo:19` image, 19.0-20261015 locally) + `postgres:16`.
 
 ### License
 
