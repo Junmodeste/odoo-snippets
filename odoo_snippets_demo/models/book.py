@@ -33,7 +33,7 @@ class SnippetBook(models.Model):
         compute="_compute_stock_status",
     )
 
-    # --- Contraintes SQL (Odoo 18 : _sql_constraints) ------------------------
+    # --- Contraintes SQL (Odoo 17 : _sql_constraints) ------------------------
     # Vérifiées par PostgreSQL ; en Odoo 19, remplacées par `models.Constraint`.
     _sql_constraints = [
         ("isbn_unique", "UNIQUE(isbn)", "This ISBN already exists."),

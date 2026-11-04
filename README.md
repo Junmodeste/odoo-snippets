@@ -1,14 +1,14 @@
-# Odoo 18 Snippets
+# Odoo 17 Snippets
 
-[![Odoo 18](https://img.shields.io/badge/Odoo-18.0-714B67)](https://www.odoo.com)
-[![tests](https://github.com/Junmodeste/odoo-snippets/actions/workflows/tests.yml/badge.svg?branch=18.0)](https://github.com/Junmodeste/odoo-snippets/actions/workflows/tests.yml)
+[![Odoo 17](https://img.shields.io/badge/Odoo-17.0-714B67)](https://www.odoo.com)
+[![tests](https://github.com/Junmodeste/odoo-snippets/actions/workflows/tests.yml/badge.svg?branch=17.0)](https://github.com/Junmodeste/odoo-snippets/actions/workflows/tests.yml)
 [![License: LGPL-3](https://img.shields.io/badge/License-LGPL--3-blue.svg)](LICENSE)
 
 🇫🇷 [Français](#français) · 🇬🇧 [English](#english)
 
 ## Français
 
-Une antisèche commentée en français des briques de code Odoo 18 les plus utilisées.
+Une antisèche commentée en français des briques de code Odoo 17 les plus utilisées.
 Tous les exemples vivent dans le module installable `odoo_snippets_demo` (un petit catalogue de livres), couvert par des tests qui prouvent qu'ils fonctionnent.
 
 ### Sommaire
@@ -24,7 +24,7 @@ Tous les exemples vivent dans le module installable `odoo_snippets_demo` (un pet
 | 7 | Action planifiée (`ir.cron`) | [data/ir_cron.xml](odoo_snippets_demo/data/ir_cron.xml), [méthode](odoo_snippets_demo/models/book.py#L86) |
 | 8 | Rapport QWeb PDF | [report/book_report.xml](odoo_snippets_demo/report/book_report.xml) |
 | 9 | Héritage de vue (`inherit_id` + `xpath`) | [views/res_partner_views.xml](odoo_snippets_demo/views/res_partner_views.xml), [modèle](odoo_snippets_demo/models/res_partner.py) |
-| 10 | Vues `<list>`, formulaire, recherche (`invisible` direct) | [views/book_views.xml](odoo_snippets_demo/views/book_views.xml) |
+| 10 | Vues `<tree>` (`<list>` en 18+), formulaire, recherche (`invisible` direct) | [views/book_views.xml](odoo_snippets_demo/views/book_views.xml) |
 | 11 | API externe en **XML-RPC** | [scripts/xmlrpc_client.py](scripts/xmlrpc_client.py) |
 | 12 | Tests de chaque exemple | [tests/test_snippets.py](odoo_snippets_demo/tests/test_snippets.py) |
 
@@ -32,7 +32,7 @@ Tous les exemples vivent dans le module installable `odoo_snippets_demo` (un pet
 
 ### Prérequis
 
-- Odoo 18 (Community ou Enterprise) ; seuls `base` et `web` sont requis
+- Odoo 17 (Community ou Enterprise) ; seuls `base` et `web` sont requis
 - Python 3 pour le script XML-RPC (bibliothèque standard uniquement)
 
 ### Installation
@@ -45,7 +45,7 @@ Lancer les tests : `odoo -d test -i odoo_snippets_demo --test-enable --stop-afte
 
 ### Versions supportées
 
-Cette branche : Odoo **18.0**. Autres branches : [`19.0`](https://github.com/Junmodeste/odoo-snippets/tree/19.0). Tests automatisés exécutés en CI sur Odoo 18 Community (image `odoo:18`, 18.0-20261102 en local) + `postgres:16`.
+Cette branche : Odoo **17.0**. Autres branches : [`19.0`](https://github.com/Junmodeste/odoo-snippets/tree/19.0), [`18.0`](https://github.com/Junmodeste/odoo-snippets/tree/18.0). Tests automatisés exécutés en CI sur Odoo 17 Community (image `odoo:17`, 17.0-20260908 en local) + `postgres:16`.
 
 ### Licence
 
@@ -57,7 +57,7 @@ Koffi Modeste Junior — [@Junmodeste](https://github.com/Junmodeste)
 
 ## English
 
-A commented cheat sheet (in French) of the most used Odoo 18 code patterns.
+A commented cheat sheet (in French) of the most used Odoo 17 code patterns.
 Every example lives in the installable `odoo_snippets_demo` module (a small book catalog), with tests proving they work.
 
 ### Contents
@@ -73,13 +73,13 @@ Every example lives in the installable `odoo_snippets_demo` module (a small book
 | 7 | Scheduled action (`ir.cron`) | [data/ir_cron.xml](odoo_snippets_demo/data/ir_cron.xml) |
 | 8 | QWeb PDF report | [report/book_report.xml](odoo_snippets_demo/report/book_report.xml) |
 | 9 | View inheritance (`inherit_id` + `xpath`) | [views/res_partner_views.xml](odoo_snippets_demo/views/res_partner_views.xml) |
-| 10 | `<list>`, form and search views | [views/book_views.xml](odoo_snippets_demo/views/book_views.xml) |
+| 10 | `<tree>` (`<list>` in 18+), form and search views | [views/book_views.xml](odoo_snippets_demo/views/book_views.xml) |
 | 11 | External **XML-RPC** API | [scripts/xmlrpc_client.py](scripts/xmlrpc_client.py) |
 | 12 | Tests for every example | [tests/test_snippets.py](odoo_snippets_demo/tests/test_snippets.py) |
 
 ### Requirements
 
-- Odoo 18 (Community or Enterprise); only `base` and `web` are required
+- Odoo 17 (Community or Enterprise); only `base` and `web` are required
 - Python 3 for the XML-RPC script (standard library only)
 
 ### Installation
@@ -90,7 +90,7 @@ Every example lives in the installable `odoo_snippets_demo` module (a small book
 
 ### Supported versions
 
-This branch: Odoo **18.0**. Other branches: [`19.0`](https://github.com/Junmodeste/odoo-snippets/tree/19.0). Automated tests run in CI on Odoo 18 Community (`odoo:18` image, 18.0-20261102 locally) + `postgres:16`.
+This branch: Odoo **17.0**. Other branches: [`19.0`](https://github.com/Junmodeste/odoo-snippets/tree/19.0), [`18.0`](https://github.com/Junmodeste/odoo-snippets/tree/18.0). Automated tests run in CI on Odoo 17 Community (`odoo:17` image, 17.0-20260908 locally) + `postgres:16`.
 
 ### License
 

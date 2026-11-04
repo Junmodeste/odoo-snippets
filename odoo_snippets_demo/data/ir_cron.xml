@@ -9,5 +9,7 @@
         <field name="user_id" ref="base.user_root"/>
         <field name="interval_number">1</field>
         <field name="interval_type">days</field>
+        <!-- Odoo 17 : numbercall vaut 1 par défaut (une seule exécution) ; -1 = sans limite -->
+        <field name="numbercall">-1</field>
     </record>
 </odoo>

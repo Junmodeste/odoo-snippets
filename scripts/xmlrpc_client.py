@@ -1,4 +1,4 @@
-"""Appel de l'API externe d'Odoo 18 en XML-RPC (bibliothèque standard uniquement).
+"""Appel de l'API externe d'Odoo 17 en XML-RPC (bibliothèque standard uniquement).
 
 Usage :
     ODOO_URL=http://localhost:8069 ODOO_DB=odoo ODOO_USER=admin ODOO_PASSWORD=admin \

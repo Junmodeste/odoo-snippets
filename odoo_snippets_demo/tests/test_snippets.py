@@ -57,7 +57,10 @@ class TestSnippets(TransactionCase):
         full = self.Book.create({"name": "Stock plein", "quantity": 100, "needs_restock": True})
         # Exécute le code de l'action planifiée dans la transaction du test
         # (method_direct_trigger passe par le planificateur et son propre traitement).
-        self.env.ref("odoo_snippets_demo.snippet_book_cron_low_stock").ir_actions_server_id.run()
+        cron = self.env.ref("odoo_snippets_demo.snippet_book_cron_low_stock")
+        # Odoo 17 : sans numbercall = -1, l'action ne tournerait qu'une fois.
+        self.assertEqual(cron.numbercall, -1)
+        cron.ir_actions_server_id.run()
         self.assertTrue(self.book.needs_restock)
         self.assertFalse(full.needs_restock)
 
