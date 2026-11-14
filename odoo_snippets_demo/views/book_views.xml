@@ -54,6 +54,10 @@
                 <field name="name"/>
                 <field name="isbn"/>
                 <filter name="needs_restock" string="To Restock" domain="[('needs_restock', '=', True)]"/>
+                <separator/>
+                <!-- Filtres sur un champ calculé non stocké (méthode search=) -->
+                <filter name="out_of_stock" string="Out of stock" domain="[('stock_status', '=', 'out')]"/>
+                <filter name="low_stock" string="Low stock" domain="[('stock_status', '=', 'low')]"/>
                 <filter name="group_author" string="Author" context="{'group_by': 'author_id'}"/>
             </search>
         </field>
