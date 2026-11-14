@@ -2,6 +2,7 @@ import logging
 
 from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
+from odoo.fields import Domain
 
 _logger = logging.getLogger(__name__)
 
@@ -27,10 +28,11 @@ class SnippetBook(models.Model):
 
     # --- Champ calculé NON STOCKÉ --------------------------------------------
     # Recalculé à chaque lecture, rien en base. Pas de recherche possible
-    # sans méthode `search=`.
+    # sans méthode `search=` (voir _search_stock_status plus bas).
     stock_status = fields.Selection(
         [("out", "Out of stock"), ("low", "Low stock"), ("ok", "In stock")],
         compute="_compute_stock_status",
+        search="_search_stock_status",
     )
 
     # --- Contraintes SQL (Odoo 19 : models.Constraint) -----------------------
@@ -52,6 +54,21 @@ class SnippetBook(models.Model):
                 book.stock_status = "low"
             else:
                 book.stock_status = "ok"
+
+    # --- Recherche sur un champ calculé NON STOCKÉ ---------------------------
+    # La méthode `search=` traduit la condition en domaine sur des champs
+    # stockés. Odoo 19 normalise les opérateurs : `=` arrive en `in` avec un
+    # ensemble de valeurs, et `!=` / `not in` sont déduits de `in` (négation).
+    # Renvoyer NotImplemented pour tout autre opérateur.
+    def _search_stock_status(self, operator, value):
+        if operator != "in":
+            return NotImplemented
+        domains = {
+            "out": [("quantity", "<=", 0)],
+            "low": [("quantity", ">", 0), ("quantity", "<", LOW_STOCK_THRESHOLD)],
+            "ok": [("quantity", ">=", LOW_STOCK_THRESHOLD)],
+        }
+        return Domain.OR(domains[status] for status in value if status in domains)
 
     # --- Onchange -------------------------------------------------------------
     # Uniquement dans le formulaire (pas lors d'un create() en Python).

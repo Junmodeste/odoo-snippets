@@ -116,6 +116,7 @@ msgstr "Dernière mise à jour le"
 
 #. module: odoo_snippets_demo
 #: model:ir.model.fields.selection,name:odoo_snippets_demo.selection__snippet_book__stock_status__low
+#: model_terms:ir.ui.view,arch_db:odoo_snippets_demo.snippet_book_view_search
 msgid "Low stock"
 msgstr "Stock faible"
 
@@ -131,6 +132,7 @@ msgstr "À réapprovisionner"
 
 #. module: odoo_snippets_demo
 #: model:ir.model.fields.selection,name:odoo_snippets_demo.selection__snippet_book__stock_status__out
+#: model_terms:ir.ui.view,arch_db:odoo_snippets_demo.snippet_book_view_search
 msgid "Out of stock"
 msgstr "En rupture"
 

@@ -28,6 +28,15 @@ class TestSnippets(TransactionCase):
         self.book.quantity = 50
         self.assertEqual(self.book.stock_status, "ok")
 
+    def test_search_non_stored_compute(self):
+        out = self.Book.create({"name": "Épuisé", "quantity": 0})
+        full = self.Book.create({"name": "Stock plein", "quantity": 100})
+        books = self.book | out | full
+        domain = [("id", "in", books.ids)]
+        self.assertEqual(self.Book.search(domain + [("stock_status", "=", "low")]), self.book)
+        self.assertEqual(self.Book.search(domain + [("stock_status", "in", ["out", "ok"])]), out | full)
+        self.assertEqual(self.Book.search(domain + [("stock_status", "!=", "out")]), self.book | full)
+
     def test_onchange(self):
         with Form(self.Book) as form:
             form.name = "Allah n'est pas obligé"
