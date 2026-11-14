@@ -2,6 +2,7 @@ import logging
 
 from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
+from odoo.osv import expression
 
 _logger = logging.getLogger(__name__)
 
@@ -27,10 +28,11 @@ class SnippetBook(models.Model):
 
     # --- Champ calculé NON STOCKÉ --------------------------------------------
     # Recalculé à chaque lecture, rien en base. Pas de recherche possible
-    # sans méthode `search=`.
+    # sans méthode `search=` (voir _search_stock_status plus bas).
     stock_status = fields.Selection(
         [("out", "Out of stock"), ("low", "Low stock"), ("ok", "In stock")],
         compute="_compute_stock_status",
+        search="_search_stock_status",
     )
 
     # --- Contraintes SQL (Odoo 17 : _sql_constraints) ------------------------
@@ -54,6 +56,25 @@ class SnippetBook(models.Model):
                 book.stock_status = "low"
             else:
                 book.stock_status = "ok"
+
+    # --- Recherche sur un champ calculé NON STOCKÉ ---------------------------
+    # La méthode `search=` traduit la condition en domaine sur des champs
+    # stockés. En Odoo 17 (comme en 18), la méthode reçoit l'opérateur tel qu'écrit dans le
+    # domaine (`=`, `!=`, `in`, `not in`) : il faut gérer chaque cas soi-même.
+    # (En Odoo 19, `=` arrive normalisé en `in` et la négation est déduite.)
+    def _search_stock_status(self, operator, value):
+        if operator not in ("=", "!=", "in", "not in"):
+            raise NotImplementedError(f"Unsupported operator {operator!r} on stock_status")
+        domains = {
+            "out": [("quantity", "<=", 0)],
+            "low": [("quantity", ">", 0), ("quantity", "<", LOW_STOCK_THRESHOLD)],
+            "ok": [("quantity", ">=", LOW_STOCK_THRESHOLD)],
+        }
+        values = {value} if operator in ("=", "!=") else set(value)
+        if operator in ("!=", "not in"):
+            # Le statut vaut toujours out, low ou ok : la négation = les autres.
+            values = set(domains) - values
+        return expression.OR([domains[status] for status in values if status in domains])
 
     # --- Onchange -------------------------------------------------------------
     # Uniquement dans le formulaire (pas lors d'un create() en Python).
