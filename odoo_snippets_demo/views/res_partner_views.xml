@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!-- Héritage de vue : inherit_id + xpath pour insérer le champ après le n° de TVA -->
+    <!-- Héritage de vue : inherit_id + xpath pour insérer le champ après le n° de TVA.
+         Odoo 20 : `vat` est dans une ligne `o_row` (avec le bouton des identifiants
+         supplémentaires) à l'intérieur de div[@name='identifiers'] ; on insère donc
+         après ce bloc, sinon le champ s'afficherait sur la même ligne que la TVA. -->
     <record id="view_partner_form_inherit_snippets" model="ir.ui.view">
         <field name="name">res.partner.form.inherit.snippets</field>
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="base.view_partner_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='vat']" position="after">
+            <xpath expr="//div[@name='identifiers']" position="after">
                 <field name="favorite_book_id"/>
             </xpath>
         </field>

@@ -6,7 +6,6 @@
         <field name="model">snippet.book</field>
         <field name="report_type">qweb-pdf</field>
         <field name="report_name">odoo_snippets_demo.report_book_stock</field>
-        <field name="report_file">odoo_snippets_demo.report_book_stock</field>
         <field name="binding_model_id" ref="model_snippet_book"/>
         <field name="binding_type">report</field>
     </record>

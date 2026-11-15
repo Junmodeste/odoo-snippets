@@ -48,7 +48,7 @@ class SnippetBook(models.Model):
         inverse="_inverse_price_incl_vat",
     )
 
-    # --- Contraintes SQL (Odoo 19 : models.Constraint) -----------------------
+    # --- Contraintes SQL (Odoo 19+ : models.Constraint) -----------------------
     # Vérifiées par PostgreSQL ; remplacent l'ancien `_sql_constraints`.
     _isbn_unique = models.Constraint("UNIQUE(isbn)", "This ISBN already exists.")
     _quantity_positive = models.Constraint("CHECK(quantity >= 0)", "Quantity cannot be negative.")

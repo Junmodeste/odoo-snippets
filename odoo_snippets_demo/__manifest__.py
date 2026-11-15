@@ -1,14 +1,14 @@
 {
     "name": "Odoo Snippets Demo",
-    "summary": "Commented Odoo 19 cheat sheet as an installable module",
-    "version": "19.0.1.2.0",
+    "summary": "Commented Odoo 20 cheat sheet as an installable module",
+    "version": "20.0.1.0.0",
     "category": "Hidden/Tools",
     "license": "LGPL-3",
     "author": "Koffi Modeste Junior",
     "website": "https://github.com/Junmodeste/odoo-snippets",
     "depends": ["base", "web"],
     "data": [
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         "data/ir_cron.xml",
         "views/book_views.xml",
         "views/res_partner_views.xml",

@@ -1,3 +1,4 @@
+from lxml import etree
 from psycopg2 import IntegrityError
 
 from odoo.exceptions import ValidationError
@@ -94,3 +95,7 @@ class TestSnippets(TransactionCase):
         with Form(partner) as form:
             form.favorite_book_id = self.book
         self.assertEqual(partner.favorite_book_id, self.book)
+        # Odoo 20 : le champ est inséré après le bloc des identifiants, pas dans la ligne de la TVA
+        arch = etree.fromstring(self.env["res.partner"].get_view(view_type="form")["arch"])
+        self.assertTrue(arch.xpath("//div[@name='identifiers']/following-sibling::field[@name='favorite_book_id']"))
+        self.assertFalse(arch.xpath("//div[@id='vat_div']//field[@name='favorite_book_id']"))
