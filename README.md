@@ -49,6 +49,8 @@ Lancer les tests : `odoo -d test -i odoo_snippets_demo --test-enable --stop-afte
 
 Une branche par version d'Odoo : [`20.0`](https://github.com/Junmodeste/odoo-snippets/tree/20.0) (cette branche), [`19.0`](https://github.com/Junmodeste/odoo-snippets/tree/19.0), [`18.0`](https://github.com/Junmodeste/odoo-snippets/tree/18.0), [`17.0`](https://github.com/Junmodeste/odoo-snippets/tree/17.0). Tests automatisés exécutés en CI sur Odoo 20 Community (image `odoo:20`, 20.0-20261112 en local) + `postgres:16`.
 
+Changements apportés pour Odoo 20 : les droits d'accès passent de `ir.model.access.csv` à [`security/ir.access.csv`](odoo_snippets_demo/security/ir.access.csv) (modèle `ir.access` : colonne `operation` = sous-ensemble de `crud`, colonne `domain` facultative, qui remplace aussi les règles d'enregistrement) ; le champ `report_file` d'`ir.actions.report` n'existe plus ; dans le formulaire partenaire, `vat` est dans `div[@name='identifiers']`, on insère donc après ce bloc.
+
 ### Licence
 
 [LGPL-3](LICENSE)
@@ -95,6 +97,8 @@ Every example lives in the installable `odoo_snippets_demo` module (a small book
 ### Supported versions
 
 One branch per Odoo version: [`20.0`](https://github.com/Junmodeste/odoo-snippets/tree/20.0) (this branch), [`19.0`](https://github.com/Junmodeste/odoo-snippets/tree/19.0), [`18.0`](https://github.com/Junmodeste/odoo-snippets/tree/18.0), [`17.0`](https://github.com/Junmodeste/odoo-snippets/tree/17.0). Automated tests run in CI on Odoo 20 Community (`odoo:20` image, 20.0-20261112 locally) + `postgres:16`.
+
+Changes made for Odoo 20: access rights move from `ir.model.access.csv` to [`security/ir.access.csv`](odoo_snippets_demo/security/ir.access.csv) (`ir.access` model: `operation` column = subset of `crud`, optional `domain` column, which also replaces record rules); the `report_file` field of `ir.actions.report` is gone; in the partner form, `vat` sits inside `div[@name='identifiers']`, so we insert after that block.
 
 ### License
 
