@@ -142,6 +142,11 @@ msgid "Price"
 msgstr "Prix"
 
 #. module: odoo_snippets_demo
+#: model:ir.model.fields,field_description:odoo_snippets_demo.field_snippet_book__price_incl_vat
+msgid "Price incl. VAT"
+msgstr "Prix TTC"
+
+#. module: odoo_snippets_demo
 #: model:ir.model.fields,field_description:odoo_snippets_demo.field_snippet_book_restock_wizard__quantity
 #: model_terms:ir.ui.view,arch_db:odoo_snippets_demo.report_book_stock
 msgid "Quantity"

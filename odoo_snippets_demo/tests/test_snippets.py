@@ -37,6 +37,19 @@ class TestSnippets(TransactionCase):
         self.assertEqual(self.Book.search(domain + [("stock_status", "in", ["out", "ok"])]), out | full)
         self.assertEqual(self.Book.search(domain + [("stock_status", "!=", "out")]), self.book | full)
 
+    def test_inverse_compute(self):
+        self.assertAlmostEqual(self.book.price_incl_vat, 5900)
+        # Écrire le champ calculé appelle la méthode inverse, qui met à jour price.
+        self.book.price_incl_vat = 11800
+        self.assertAlmostEqual(self.book.price, 10000)
+        self.assertEqual(self.book.total_value, 30000)
+        # Dans le formulaire, l'inverse ne s'exécute qu'à l'enregistrement :
+        # price garde son ancienne valeur tant que le formulaire est ouvert.
+        with Form(self.book) as form:
+            form.price_incl_vat = 2360
+            self.assertAlmostEqual(form.price, 10000)
+        self.assertAlmostEqual(self.book.price, 2000)
+
     def test_onchange(self):
         with Form(self.Book) as form:
             form.name = "Allah n'est pas obligé"

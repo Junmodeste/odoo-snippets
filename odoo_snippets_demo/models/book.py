@@ -7,6 +7,7 @@ from odoo.fields import Domain
 _logger = logging.getLogger(__name__)
 
 LOW_STOCK_THRESHOLD = 5
+VAT_RATE = 0.18  # TVA de 18 % (Côte d'Ivoire, Sénégal) ; exemple simplifié
 
 
 class SnippetBook(models.Model):
@@ -33,6 +34,18 @@ class SnippetBook(models.Model):
         [("out", "Out of stock"), ("low", "Low stock"), ("ok", "In stock")],
         compute="_compute_stock_status",
         search="_search_stock_status",
+    )
+
+    # --- Champ calculé MODIFIABLE (inverse=) ---------------------------------
+    # Sans `inverse=`, un champ calculé est en lecture seule. La méthode
+    # inverse reçoit la valeur saisie et met à jour les champs dont il dépend :
+    # ici, saisir le prix TTC recalcule le prix HT (`price`). Dans un
+    # formulaire, l'inverse ne s'exécute qu'à l'enregistrement (pas en direct).
+    price_incl_vat = fields.Float(
+        string="Price incl. VAT",
+        digits="Product Price",
+        compute="_compute_price_incl_vat",
+        inverse="_inverse_price_incl_vat",
     )
 
     # --- Contraintes SQL (Odoo 19 : models.Constraint) -----------------------
@@ -69,6 +82,15 @@ class SnippetBook(models.Model):
             "ok": [("quantity", ">=", LOW_STOCK_THRESHOLD)],
         }
         return Domain.OR(domains[status] for status in value if status in domains)
+
+    @api.depends("price")
+    def _compute_price_incl_vat(self):
+        for book in self:
+            book.price_incl_vat = book.price * (1 + VAT_RATE)
+
+    def _inverse_price_incl_vat(self):
+        for book in self:
+            book.price = book.price_incl_vat / (1 + VAT_RATE)
 
     # --- Onchange -------------------------------------------------------------
     # Uniquement dans le formulaire (pas lors d'un create() en Python).
