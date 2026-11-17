@@ -36,6 +36,8 @@
                         </group>
                         <group>
                             <field name="price"/>
+                            <!-- Champ calculé avec inverse= : modifiable, met à jour price -->
+                            <field name="price_incl_vat"/>
                             <field name="quantity"/>
                             <field name="total_value"/>
                             <field name="stock_status" readonly="1"/>
