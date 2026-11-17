@@ -51,6 +51,15 @@ class TestSnippets(TransactionCase):
             self.assertAlmostEqual(form.price, 10000)
         self.assertAlmostEqual(self.book.price, 2000)
 
+    def test_display_name_and_name_search(self):
+        self.assertEqual(self.book.display_name, "Les Soleils des indépendances")
+        self.book.isbn = "9782020259766"
+        self.assertEqual(self.book.display_name, "Les Soleils des indépendances (9782020259766)")
+        # name_search interroge `_rec_names_search` : titre ou ISBN.
+        self.assertIn(self.book.id, [r[0] for r in self.Book.name_search("0259766")])
+        self.assertIn(self.book.id, [r[0] for r in self.Book.name_search("Soleils")])
+        self.assertIn(self.book, self.Book.search([("display_name", "ilike", "9782020")]))
+
     def test_onchange(self):
         with Form(self.Book) as form:
             form.name = "Allah n'est pas obligé"

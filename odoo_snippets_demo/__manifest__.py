@@ -1,7 +1,7 @@
 {
     "name": "Odoo Snippets Demo",
     "summary": "Commented Odoo 20 cheat sheet as an installable module",
-    "version": "20.0.1.0.0",
+    "version": "20.0.1.1.0",
     "category": "Hidden/Tools",
     "license": "LGPL-3",
     "author": "Koffi Modeste Junior",
