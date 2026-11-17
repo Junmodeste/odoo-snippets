@@ -29,6 +29,7 @@ Tous les exemples vivent dans le module installable `odoo_snippets_demo` (un pet
 | 12 | Tests de chaque exemple | [tests/test_snippets.py](odoo_snippets_demo/tests/test_snippets.py) |
 | 13 | Recherche sur un champ calculé **non stocké** (`search=`) + filtres | [models/book.py#L71](odoo_snippets_demo/models/book.py#L71), [vue](odoo_snippets_demo/views/book_views.xml) |
 | 14 | Champ calculé **modifiable** (`inverse=`) : prix TTC ↔ prix HT | [models/book.py#L39](odoo_snippets_demo/models/book.py#L39) |
+| 15 | Nom affiché (`_compute_display_name`) + recherche par titre ou ISBN (`_rec_names_search`) | [models/book.py#L130](odoo_snippets_demo/models/book.py#L130) |
 
 ![Rapport QWeb](odoo_snippets_demo/static/description/report.png)
 
@@ -80,6 +81,7 @@ Every example lives in the installable `odoo_snippets_demo` module (a small book
 | 12 | Tests for every example | [tests/test_snippets.py](odoo_snippets_demo/tests/test_snippets.py) |
 | 13 | Searching a **non-stored** computed field (`search=`) + filters | [models/book.py#L71](odoo_snippets_demo/models/book.py#L71), [view](odoo_snippets_demo/views/book_views.xml) |
 | 14 | **Editable** computed field (`inverse=`): price incl. VAT ↔ price | [models/book.py#L39](odoo_snippets_demo/models/book.py#L39) |
+| 15 | Display name (`_compute_display_name`) + search by title or ISBN (`_rec_names_search`) | [models/book.py#L130](odoo_snippets_demo/models/book.py#L130) |
 
 ### Requirements
 

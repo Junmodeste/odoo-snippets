@@ -126,3 +126,16 @@ class SnippetBook(models.Model):
         low.needs_restock = True
         (books - low).needs_restock = False
         _logger.info("Low stock check: %s book(s) to restock", len(low))
+
+    # --- Nom affiché (display_name) et recherche par plusieurs champs --------
+    # `_rec_names_search` : champs interrogés quand on tape dans un champ
+    # many2one ou dans la barre de recherche (name_search). Ici, on retrouve un
+    # livre par son titre OU par son ISBN.
+    _rec_names_search = ["name", "isbn"]
+
+    # `_compute_display_name` remplace l'ancien `name_get` (supprimé en 17) :
+    # le nom affiché partout (many2one, fil d'Ariane) devient « Titre (ISBN) ».
+    @api.depends("name", "isbn")
+    def _compute_display_name(self):
+        for book in self:
+            book.display_name = f"{book.name} ({book.isbn})" if book.isbn else book.name
