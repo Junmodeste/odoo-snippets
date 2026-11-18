@@ -1,7 +1,7 @@
 from psycopg2 import IntegrityError
 
-from odoo.exceptions import ValidationError
-from odoo.tests import Form, TransactionCase, tagged
+from odoo.exceptions import AccessError, ValidationError
+from odoo.tests import Form, TransactionCase, new_test_user, tagged
 from odoo.tools import mute_logger
 
 
@@ -58,6 +58,23 @@ class TestSnippets(TransactionCase):
         self.assertIn(self.book.id, [r[0] for r in self.Book.name_search("0259766")])
         self.assertIn(self.book.id, [r[0] for r in self.Book.name_search("Soleils")])
         self.assertIn(self.book, self.Book.search([("display_name", "ilike", "9782020")]))
+
+    def test_multi_company_rule(self):
+        company_a = self.env.company
+        company_b = self.env["res.company"].create({"name": "Société B"})
+        self.assertEqual(self.book.company_id, company_a)
+        book_b = self.Book.create({"name": "Livre B", "company_id": company_b.id})
+        shared = self.Book.create({"name": "Livre partagé", "company_id": False})
+        user = new_test_user(self.env, login="snippet_mc", company_id=company_a.id, company_ids=company_a.ids)
+        domain = [("id", "in", (self.book | book_b | shared).ids)]
+        # La règle masque le livre de la société B à un utilisateur de la société A.
+        self.assertEqual(self.Book.with_user(user).search(domain), self.book | shared)
+        with self.assertRaises(AccessError):
+            book_b.with_user(user).read(["name"])
+        # Avec accès aux deux sociétés actives, les trois livres sont visibles.
+        user.company_ids = company_a | company_b
+        both = self.Book.with_user(user).with_context(allowed_company_ids=[company_a.id, company_b.id])
+        self.assertEqual(both.search(domain), self.book | book_b | shared)
 
     def test_onchange(self):
         with Form(self.Book) as form:

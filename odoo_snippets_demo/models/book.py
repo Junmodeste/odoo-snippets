@@ -139,3 +139,10 @@ class SnippetBook(models.Model):
     def _compute_display_name(self):
         for book in self:
             book.display_name = f"{book.name} ({book.isbn})" if book.isbn else book.name
+
+    # --- Multi-société : champ company_id + règle d'enregistrement -----------
+    # Un livre appartient à une société (celle de l'utilisateur par défaut) ;
+    # vide = partagé entre toutes les sociétés. La règle `ir.rule` de
+    # security/snippet_book_security.xml filtre les lectures sur les sociétés
+    # actives de l'utilisateur (`company_ids`, sélecteur de sociétés).
+    company_id = fields.Many2one("res.company", default=lambda self: self.env.company, index=True)
