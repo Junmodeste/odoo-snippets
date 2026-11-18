@@ -1,3 +1,4 @@
 id,name,model_id:id,group_id:id,operation,domain
 access_snippet_book_user,snippet.book user,model_snippet_book,base.group_user,crud,
 access_snippet_book_restock_wizard_user,snippet.book.restock.wizard user,model_snippet_book_restock_wizard,base.group_user,crud,
+snippet_book_company_rule,Book: multi-company,model_snippet_book,,crud,"['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]"

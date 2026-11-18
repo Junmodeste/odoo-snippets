@@ -139,3 +139,10 @@ class SnippetBook(models.Model):
     def _compute_display_name(self):
         for book in self:
             book.display_name = f"{book.name} ({book.isbn})" if book.isbn else book.name
+
+    # --- Multi-société : champ company_id + règle d'enregistrement -----------
+    # Un livre appartient à une société (celle de l'utilisateur par défaut) ;
+    # vide = partagé entre toutes les sociétés. En Odoo 20, la restriction est
+    # une ligne de security/ir.access.csv sans groupe, avec un `domain` : elle
+    # filtre les livres sur les sociétés actives de l'utilisateur (`company_ids`).
+    company_id = fields.Many2one("res.company", default=lambda self: self.env.company, index=True)

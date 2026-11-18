@@ -30,6 +30,7 @@ Tous les exemples vivent dans le module installable `odoo_snippets_demo` (un pet
 | 13 | Recherche sur un champ calculé **non stocké** (`search=`) + filtres | [models/book.py#L71](odoo_snippets_demo/models/book.py#L71), [vue](odoo_snippets_demo/views/book_views.xml) |
 | 14 | Champ calculé **modifiable** (`inverse=`) : prix TTC ↔ prix HT | [models/book.py#L39](odoo_snippets_demo/models/book.py#L39) |
 | 15 | Nom affiché (`_compute_display_name`) + recherche par titre ou ISBN (`_rec_names_search`) | [models/book.py#L130](odoo_snippets_demo/models/book.py#L130) |
+| 16 | **Multi-société** : champ `company_id` + restriction `ir.access` (ligne sans groupe avec `domain`, ex-`ir.rule`) | [models/book.py#L143](odoo_snippets_demo/models/book.py#L143), [restriction](odoo_snippets_demo/security/ir.access.csv) |
 
 ![Rapport QWeb](odoo_snippets_demo/static/description/report.png)
 
@@ -84,6 +85,7 @@ Every example lives in the installable `odoo_snippets_demo` module (a small book
 | 13 | Searching a **non-stored** computed field (`search=`) + filters | [models/book.py#L71](odoo_snippets_demo/models/book.py#L71), [view](odoo_snippets_demo/views/book_views.xml) |
 | 14 | **Editable** computed field (`inverse=`): price incl. VAT ↔ price | [models/book.py#L39](odoo_snippets_demo/models/book.py#L39) |
 | 15 | Display name (`_compute_display_name`) + search by title or ISBN (`_rec_names_search`) | [models/book.py#L130](odoo_snippets_demo/models/book.py#L130) |
+| 16 | **Multi-company**: `company_id` field + `ir.access` restriction (row without group, with `domain`; formerly `ir.rule`) | [models/book.py#L143](odoo_snippets_demo/models/book.py#L143), [restriction](odoo_snippets_demo/security/ir.access.csv) |
 
 ### Requirements
 

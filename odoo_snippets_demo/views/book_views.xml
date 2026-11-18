@@ -9,6 +9,7 @@
                 <field name="name"/>
                 <field name="isbn"/>
                 <field name="author_id"/>
+                <field name="company_id" groups="base.group_multi_company" optional="show"/>
                 <field name="price"/>
                 <field name="quantity"/>
                 <field name="total_value" sum="Total"/>
@@ -33,6 +34,8 @@
                             <field name="name"/>
                             <field name="isbn"/>
                             <field name="author_id"/>
+                            <!-- Visible seulement si l'utilisateur gère plusieurs sociétés -->
+                            <field name="company_id" groups="base.group_multi_company"/>
                         </group>
                         <group>
                             <field name="price"/>
