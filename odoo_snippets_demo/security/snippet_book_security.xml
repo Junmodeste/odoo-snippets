@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Règle multi-société : sans `groups`, elle s'applique à tous les
+         utilisateurs (règle globale). `company_ids` = sociétés actives dans le
+         sélecteur de sociétés ; company_id vide = livre visible partout.
+         noupdate="1" : une règle modifiée par l'administrateur n'est pas
+         écrasée à la mise à jour du module (comme dans le core). -->
+    <data noupdate="1">
+        <record id="snippet_book_company_rule" model="ir.rule">
+            <field name="name">Book: multi-company</field>
+            <field name="model_id" ref="model_snippet_book"/>
+            <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+        </record>
+    </data>
+</odoo>

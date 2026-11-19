@@ -1,7 +1,7 @@
 {
     "name": "Odoo Snippets Demo",
     "summary": "Commented Odoo 18 cheat sheet as an installable module",
-    "version": "18.0.1.3.0",
+    "version": "18.0.1.4.0",
     "category": "Hidden/Tools",
     "license": "LGPL-3",
     "author": "Koffi Modeste Junior",
@@ -9,6 +9,7 @@
     "depends": ["base", "web"],
     "data": [
         "security/ir.model.access.csv",
+        "security/snippet_book_security.xml",
         "data/ir_cron.xml",
         "views/book_views.xml",
         "views/res_partner_views.xml",
