@@ -125,3 +125,17 @@ class TestSnippets(TransactionCase):
         arch = etree.fromstring(self.env["res.partner"].get_view(view_type="form")["arch"])
         self.assertTrue(arch.xpath("//div[@name='identifiers']/following-sibling::field[@name='favorite_book_id']"))
         self.assertFalse(arch.xpath("//div[@id='vat_div']//field[@name='favorite_book_id']"))
+
+    def test_french_field_labels(self):
+        # Chaque champ ajouté au module doit avoir son libellé dans i18n/fr.po.
+        self.env["res.lang"]._activate_lang("fr_FR")
+        self.env["ir.module.module"]._load_module_terms(["odoo_snippets_demo"], ["fr_FR"])
+        self.env.cr.execute(
+            """
+            SELECT f.model || '.' || f.name
+              FROM ir_model_fields f
+              JOIN ir_model_data d ON d.model = 'ir.model.fields' AND d.res_id = f.id
+             WHERE d.module = 'odoo_snippets_demo' AND f.field_description->>'fr_FR' IS NULL
+            """
+        )
+        self.assertEqual([row[0] for row in self.env.cr.fetchall()], [])
