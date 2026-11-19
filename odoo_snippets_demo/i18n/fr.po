@@ -56,6 +56,11 @@ msgid "Check the ISBN"
 msgstr "Vérifiez l'ISBN"
 
 #. module: odoo_snippets_demo
+#: model:ir.model.fields,field_description:odoo_snippets_demo.field_snippet_book__company_id
+msgid "Company"
+msgstr "Société"
+
+#. module: odoo_snippets_demo
 #: model:ir.model,name:odoo_snippets_demo.model_res_partner
 msgid "Contact"
 msgstr "Contact"
