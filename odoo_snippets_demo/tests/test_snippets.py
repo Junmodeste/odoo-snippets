@@ -121,3 +121,17 @@ class TestSnippets(TransactionCase):
         with Form(partner) as form:
             form.favorite_book_id = self.book
         self.assertEqual(partner.favorite_book_id, self.book)
+
+    def test_french_field_labels(self):
+        # Chaque champ ajouté au module doit avoir son libellé dans i18n/fr.po.
+        self.env["res.lang"]._activate_lang("fr_FR")
+        self.env["ir.module.module"]._load_module_terms(["odoo_snippets_demo"], ["fr_FR"])
+        self.env.cr.execute(
+            """
+            SELECT f.model || '.' || f.name
+              FROM ir_model_fields f
+              JOIN ir_model_data d ON d.model = 'ir.model.fields' AND d.res_id = f.id
+             WHERE d.module = 'odoo_snippets_demo' AND f.field_description->>'fr_FR' IS NULL
+            """
+        )
+        self.assertEqual([row[0] for row in self.env.cr.fetchall()], [])
